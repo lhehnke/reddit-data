@@ -24,17 +24,18 @@ p_load(RedditExtractoR, magrittr, reshape2, tidytext, tidyverse, wordcloud)
 # Scrape data from Reddit #
 #-------------------------#
 
-# Get "odd" subreddits
+# Get thread URLs in subreddit
 links <- reddit_urls(subreddit = "todayilearned", page_threshold = 10, sort_by = "relevance")
 saveRDS(links, "links.rds")
 
-# Find most commented subreddit and extract URL
+# Find most commented threads and extract selected URL
 links %<>% arrange(desc(num_comments))
 url <- links[2, "URL"]
 
-# Get comments for most commented subreddit
+# Get comments for selected thread
 comments <- reddit_content(url)
 saveRDS(comments, "comments.rds")
+
 
 #----------------#
 # Data wrangling #
