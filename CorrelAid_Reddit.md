@@ -203,7 +203,7 @@ dev.off()
 
 ## Today I learned...
 
-Any final guesses before I finally reveal what both the thread opener and we learned today?
+Any final guesses before I reveal what both the thread opener and we learned today?
 
 3...
 
