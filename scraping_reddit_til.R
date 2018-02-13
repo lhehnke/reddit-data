@@ -17,7 +17,7 @@ if (!require("pacman")) install.packages("pacman")
 library(pacman)
 
 # Load packages
-p_load(RedditExtractoR, magrittr, reshape2, tidytext, tidyverse, wordcloud)
+p_load(magrittr, RedditExtractoR, reshape2, tidytext, tidyverse, wordcloud)
 
 
 #-------------------------#
