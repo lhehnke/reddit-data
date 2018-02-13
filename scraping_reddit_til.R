@@ -3,7 +3,7 @@
 ##-----------------------------------------------------------------------------------##
 
 
-## R version 3.3.1 (2016-06-21)
+## R version 3.4.3 (2017-11-30)
 
 ## Author: Lisa Hehnke || lhehnke.github.io || @DataPlanes
 
@@ -26,7 +26,7 @@ p_load(RedditExtractoR, magrittr, reshape2, tidytext, tidyverse, wordcloud)
 
 # Get thread URLs in subreddit
 links <- reddit_urls(subreddit = "todayilearned", page_threshold = 10, sort_by = "relevance")
-saveRDS(links, "links.rds")
+#saveRDS(links, "links.rds")
 
 # Find most commented threads and extract selected URL
 links %<>% arrange(desc(num_comments))
@@ -34,7 +34,7 @@ url <- links[2, "URL"]
 
 # Get comments for selected thread
 comments <- reddit_content(url)
-saveRDS(comments, "comments.rds")
+#saveRDS(comments, "comments.rds")
 
 
 #----------------#
@@ -56,7 +56,7 @@ comments_tidy %<>%
   data.frame() 
 colnames(comments_tidy) <- "word"
 
-# Remove blanks text
+# Remove blanks
 comments_tidy %<>% filter(word != "") 
 
 # Remove stopwords
@@ -106,7 +106,7 @@ ggsave("plot_words.png", width = 12, height = 8, units = "in", dpi = 100)
 # Sentiment analysis #
 #--------------------#
 
-# Plot total sentiment scores (nrc)
+# Calculate and plot total sentiment scores (nrc)
 comments_tidy %>%
   inner_join(get_sentiments("nrc")) %>%
   count(word, sentiment) %>%
@@ -123,7 +123,7 @@ ggsave("plot_sentiments.png", width = 12, height = 8, units = "in", dpi = 100)
 # Positive/negative words #
 #-------------------------#
 
-# Calculate contributions to positive and negative sentiments (bing) by word 
+# Calculate positive and negative sentiments (bing)  
 bing_counts <- comments_tidy %>%
   inner_join(get_sentiments("bing")) %>%
   count(word, sentiment, sort = TRUE) %>%
@@ -148,9 +148,9 @@ ggplot(bing_counts_plot, aes(word, n, fill = sentiment)) +
 ggsave("plot_pos_neg_words.png", width = 12, height = 8, units = "in", dpi = 100)
 
 
-#------------#
-# Wordclouds #
-#------------#
+#-----------#
+# Wordcloud #
+#-----------#
 
 # Plot comparison cloud
 png("wordcloud.png", width = 3.5, height = 3.5, units = 'in', res = 300)
@@ -168,8 +168,3 @@ dev.off()
 
 # View title
 comments[1, "title"]
-
-# Today I learned that...
-#"TIL: CBS used to add bird songs to their golf broadcasts to get rid of awkward silences until they got 
-#caught by someone watching at home who knew the bird songs belonged to birds that didn't live in the region 
-#in which the golf tournament was being played."
