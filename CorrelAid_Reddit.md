@@ -85,7 +85,7 @@ comments_tidy %<>% filter(word != "")
 comments_tidy %<>% anti_join(stop_words)
 ```
 
-## Visualizing word frequencies
+## Word frequencies
 
 After processing the raw text and turning it into a tidy format, the first step of the analysis consisted of calculating word frequencies and extracting the most common words by running the following code:
 
@@ -127,7 +127,7 @@ As you can see in the above plot, *sound(s)* (you can prevent such word duplicat
 
 Any guesses yet on what the thread opener learned? 
 
-## Conducting a sentiment analysis
+## Sentiment analysis
 
 For the next step of the analysis, I conducted a basic sentiment analysis with `get_sentiments()` from the `tidytext` package and visualized the results. More specifically, I used the `NRC Emotion Lexicon` by Saif Mohammad and Peter Turney which categorizes words into positive and negative categories as well as in anger, anticipation, disgust, fear, joy, sadness, surprise, and trust.
 
@@ -149,7 +149,7 @@ ggsave("plot_sentiments.png", width = 12, height = 8, units = "in", dpi = 100)
 
 According to the `NRC` sentiment analysis, most words in the comments are positively scored, followed by negatively scored words.
 
-## Extracting positive and negative words
+## Positive and negative words
 
 After obtaining the results of the first sentiment analysis, I decided to dig deeper into the previous finding by extracting the most common positive and negative words using the `Bing` sentiment lexicon by Bing Liu and collaborators.
 
@@ -183,7 +183,7 @@ ggsave("plot_pos_neg_words.png", width = 12, height = 8, units = "in", dpi = 100
 
 As the second sentiment graph shows, the most common negative words in the thread were *noise(s)*, *fake*, and *dead*, whereas the positive words that occurred most often were *quiet*, *pretty*, and *top*/*silent*/*audible*.
   
-## Creating a word cloud
+## Word cloud
 
 To finish this brief text analysis up, I created a slightly more advanced word cloud that contrasts the most common positive words with the most common negative ones.
   
