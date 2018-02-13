@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Today I learned... Scraping and mining Reddit comments"
+title: "Today I learned: Scraping and mining Reddit comments"
 date: "February 13, 2018"
 type: post
 published: false
@@ -16,7 +16,7 @@ tags:
 - todyilearned
 ---
 
-# Today I learned... Scraping and mining Reddit comments
+# Today I learned: Scraping and mining Reddit comments
 
 Inspiration for this post hit me when our editor-in-chief Yannik told me he'd like to have *“alles Kuriose”* (meaning all things weird) for future blog posts. Well, challenge accepted. 
 
