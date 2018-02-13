@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Guess the Lesson: Scraping and mining Reddit comments from r/todayilearned"
+title: "Today I learned... Scraping and mining Reddit comments"
 date: "February 13, 2018"
 type: post
 published: false
