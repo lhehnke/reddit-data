@@ -1,5 +1,5 @@
 ##-----------------------------------------------------------------------------------##
-##                      ALL THINGS WEIRD: SCRAPING REDDIT DATA                       ##
+##                     ALL THINGS WEIRD: SCRAPING REDDIT THREADS                     ##
 ##-----------------------------------------------------------------------------------##
 
 
@@ -20,9 +20,9 @@ library(pacman)
 p_load(magrittr, RedditExtractoR, reshape2, tidytext, tidyverse, wordcloud)
 
 
-#-------------------------#
-# Scrape data from Reddit #
-#-------------------------#
+#---------------------------#
+# Scraping data from Reddit #
+#---------------------------#
 
 # Get thread URLs in subreddit
 links <- reddit_urls(subreddit = "todayilearned", page_threshold = 10, sort_by = "relevance")
